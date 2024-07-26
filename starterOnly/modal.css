@@ -526,4 +526,14 @@ footer {
     opacity: 1;
   }
 }
+input:disabled{
+  opacity: 0.3;
+  cursor: auto;
+}
+
+.error {
+  display: none;
+  color: red;
+  font-size: 12px;
+}
 
