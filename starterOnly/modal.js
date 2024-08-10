@@ -23,6 +23,7 @@ const submitButton = document.querySelector(".btn-submit");
 const formData = document.querySelectorAll(".formData");
 const content = document.querySelector(".content");
 
+
 const firstNameInput = document.getElementById("first")
 const firstNameError = document.querySelector(".firstNameError")
 
@@ -45,9 +46,12 @@ const locationError = document.querySelector(".locationError")
 const checkboxInput = document.getElementById("checkbox1")
 const checkboxError = document.querySelector(".checkboxError")
 
+<<<<<<< HEAD
+=======
 
 
 
+>>>>>>> 7ca8a5d50e2972ec2738e814bd05e95593eb0d2d
 const validElements = {
   firstNameIsValid : false,
   lastNameIsValid: false,
@@ -59,15 +63,65 @@ const validElements = {
 }
 
 function manageDisableButton() {
+<<<<<<< HEAD
+  submitButton.disabled = !Object.values(validElements).every(item => item)
+}
+
+=======
   // Quand fini remplacer some par every
   submitButton.disabled = !Object.values(validElements).every(item => item)
 }
 
 
+>>>>>>> 7ca8a5d50e2972ec2738e814bd05e95593eb0d2d
 firstNameInput.addEventListener("blur", () => {
   validateInput(firstNameInput, regex, firstNameError, 'firstNameIsValid' );
 });
 
+<<<<<<< HEAD
+lastNameInput.addEventListener("blur", () => {
+  validateInput(lastNameInput, regex, lastNameError, 'lastNameIsValid' );
+});
+
+emailInput.addEventListener("blur", () => {
+  validateInput(emailInput, emailRegex, emailError, 'emailIsValid' );
+});
+
+birthdateInput.addEventListener("blur", () => {
+  validateInput(birthdateInput, birdthdayRegex, birthdateError, 'birthdayIsValid' );
+});
+
+checkboxInput.addEventListener("input", () => {
+validateInput(checkboxInput, checkboxRegex, checkboxError, 'checkboxIsValid');
+});
+
+quantityInput.addEventListener("input", () => {
+  validateInput(quantityInput, quantityRegex, quantityError, 'quantityIsValid');
+});
+
+locationInput.addEventListener("input", () => {
+  document.querySelector('input[name="location"]:checked').value
+  validateInput(document.querySelector('input[name="location"]:checked'), locationRegex, locationError, 'locationIsValid');
+});
+
+checkboxInput.addEventListener("input", () => {
+  if (checkboxInput.checked) {
+    checkboxInput.value = "on"
+  } else {
+    checkboxInput.value = "off" 
+  }
+  console.log(checkboxInput.value)
+  validateInput(checkboxInput, checkboxRegex, checkboxError, 'checkboxIsValid');
+}); 
+
+modalBtnSubmit.addEventListener("click", () => {
+  //modalbg.style.display = "none"
+  alert("Nous allons revendre vos informations :)")  
+});
+
+function validateInput(input, regex, errorElement, isValidParameter) {
+  console.log(validElements)
+=======
 lastNameInput.addEventListener("input", () => {
   validateInput(lastNameInput, regex, lastNameError, 'lastNameIsValid' );
 });
@@ -79,6 +133,7 @@ emailInput.addEventListener("input", () => {
 birthdateInput.addEventListener("input", () => {
   validateInput(birthdateInput, birdthdayRegex, birthdateError, 'birthdayIsValid');
 }); 
+>>>>>>> 7ca8a5d50e2972ec2738e814bd05e95593eb0d2d
 
 quantityInput.addEventListener("input", () => {
   validateInput(quantityInput, quantityRegex, quantityError, 'quantityIsValid');
@@ -117,13 +172,17 @@ function validateInput(input, regex, errorElement, isValidParameter) {
     // return true;
   }
   manageDisableButton()  
-}
+};
 
+modalBtnSubmit.addEventListener("click", () => {
+  //modalbg.style.display = "none"
+  alert("Bravo votre âme m'appartient")  
+});
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
-// launch modal form
+// Remettre les valeurs à 0 lorsqu'on quitte
 function launchModal() {
   firstNameInput.value = ""
   lastNameInput.value = ""
