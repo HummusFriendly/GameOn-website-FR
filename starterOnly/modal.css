@@ -537,3 +537,25 @@ input:disabled{
   font-size: 12px;
 }
 
+.bravo-style{
+  background-color: #232323;
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  font-size: 4rem; 
+  font-family: 'Arial', sans-serif; 
+  text-align: center;
+}
+
+.modal-confirmation {
+  display: none;
+  background-color: #232323;
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  font-size: 4rem; 
+  font-family: 'Arial', sans-serif; 
+  text-align: center;
+}
