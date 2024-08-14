@@ -9,7 +9,7 @@ function editNav() {
 
 const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ]{2,}$/
 const emailRegex = /^[A-Za-z]{1,}[A-Za-z0-9._%+-]+@[A-Za-z.-]+\.[A-Za-z]{2,}$/;
-const birdthdayRegex = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/;
+const birthdateRegex = /^(19[4-9]\d|20[0-1]\d|202[0-3]|2024)\-(0[1-9]|1[0-2])\-(0[1-9]|[12][0-9]|3[01])$/;
 const quantityRegex = /^[1-9][0-9]?$|^100$/;
 const locationRegex = /^[San Francisco]*[New York]*[Seattle]*[Chicago]*[Boston]*[Portland]*$/
 const checkboxRegex = /^[on]*$/
@@ -38,7 +38,7 @@ const emailInput = document.getElementById("email")
 const emailError = document.querySelector(".emailNameError")
 
 const birthdateInput = document.getElementById("birthdate")
-const birthdateError = document.querySelector(".birthdateNameError")
+const birthdateError = document.querySelector(".birthdateError")
 
 const quantityInput = document.getElementById("quantity")
 const quantityError = document.querySelector(".quantityError")
@@ -76,7 +76,7 @@ emailInput.addEventListener("blur", () => {
 });
 
 birthdateInput.addEventListener("blur", () => {
-  validateInput(birthdateInput, birdthdayRegex, birthdateError, 'birthdayIsValid');
+  validateInput(birthdateInput, birthdateRegex, birthdateError, 'birthdayIsValid');
 });
 
 checkboxInput.addEventListener("input", () => {
