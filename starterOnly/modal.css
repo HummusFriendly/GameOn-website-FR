@@ -527,12 +527,10 @@ footer {
   }
 }
 input:disabled{
-  opacity: 0.3;
-  cursor: auto;
+  cursor: not-allowed;
 }
 
 .error {
-  display: none;
   color: red;
   font-size: 12px;
 }
