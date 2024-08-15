@@ -24,7 +24,7 @@ const formData = document.querySelectorAll(".formData");
 const content = document.querySelector(".content");
 const reserveElement = document.querySelector('.modal-confirmation');
 const mainModal = document.querySelector('.modal-body');
-
+const terter = document.getElementById("term")
 
 
 
@@ -101,7 +101,7 @@ checkboxInput.addEventListener("input", () => {
 }); 
 
 modalBtnSubmit.addEventListener("click", () => {
-  reserveElement.style.display = "block"
+  reserveElement.style.display = "grid"
   mainModal.style.display = "none"
 });
 
@@ -134,6 +134,12 @@ function launchModal() {
 }
 
 modalBtnClose.addEventListener("click", function() {
+  modalbg.style.display = "none";
+  reserveElement.style.display = "none"
+  mainModal.style.display = "block"
+});
+
+terter.addEventListener("click", function() {
   modalbg.style.display = "none";
   reserveElement.style.display = "none"
   mainModal.style.display = "block"
