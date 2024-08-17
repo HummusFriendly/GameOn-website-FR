@@ -140,21 +140,22 @@ function launchModal() {
   birthdateInput.value = ""
   quantityInput.value = ""
   modalbg.style.display = "block";
-  input.classList.remove("field-error");
+  const errorElements = document.querySelectorAll('.error');
+  errorElements.forEach(function(element) {
+    element.style.display = 'none';
+  });
 }
 
 modalBtnClose.addEventListener("click", function() {
   modalbg.style.display = "none";
-  reserveElement.style.display = "none"
-  mainModal.style.display = "block"
-  
+  reserveElement.style.display = "none";
+  mainModal.style.display = "block";
 });
 
 terter.addEventListener("click", function() {
   modalbg.style.display = "none";
-  reserveElement.style.display = "none"
-  mainModal.style.display = "block"
-
+  reserveElement.style.display = "none";
+  mainModal.style.display = "block";
 });
 
 function validate() {
