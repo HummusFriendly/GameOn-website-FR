@@ -59,10 +59,6 @@ const validElements = {
   checkboxIsValid: false,
 }
 
-function manageDisableButton() {
-  submitButton.disabled = !Object.values(validElements).every(item => item)
-}
-
 firstNameInput.addEventListener("blur", () => {
   validateInput(firstNameInput, regex, firstNameError, 'firstNameIsValid');
 });
@@ -88,7 +84,6 @@ quantityInput.addEventListener("input", () => {
 });
 
 locationInput.addEventListener("input", () => {
-  document.querySelector('input[name="location"]:checked').value
   validateInput(document.querySelector('input[name="location"]:checked'), locationRegex, locationError, 'locationIsValid');
 });
 
@@ -100,9 +95,24 @@ checkboxInput.addEventListener("input", () => {
   }
 }); 
 
-modalBtnSubmit.addEventListener("click", () => {
-  reserveElement.style.display = "grid"
-  mainModal.style.display = "none"
+submitButton.addEventListener("click", () => {
+  validateInput(firstNameInput, regex, firstNameError, 'firstNameIsValid');
+  validateInput(lastNameInput, regex, lastNameError, 'lastNameIsValid');
+  validateInput(emailInput, emailRegex, emailError, 'emailIsValid');
+  validateInput(birthdateInput, birthdateRegex, birthdateError, 'birthdayIsValid');
+  validateInput(checkboxInput, checkboxRegex, checkboxError, 'checkboxIsValid');
+  validateInput(quantityInput, quantityRegex, quantityError, 'quantityIsValid');
+  // validateInput(document.querySelector('input[name="location"]:checked'), locationRegex, locationError, 'locationIsValid');
+  if (checkboxInput.checked) {
+    checkboxInput.value = "on"
+  } else {
+    checkboxInput.value = "off" 
+  }
+  console.log(validElements)
+  if (Object.values(validElements).every(item => item)) {
+      reserveElement.style.display = "grid"
+      mainModal.style.display = "none"
+  }
 });
 
 function validateInput(input, regex, errorElement, isValidParameter) {
@@ -117,7 +127,6 @@ function validateInput(input, regex, errorElement, isValidParameter) {
     validElements[isValidParameter] = true
     // return true;
   }
-  manageDisableButton()  
 };
 
 // launch modal event
@@ -131,18 +140,21 @@ function launchModal() {
   birthdateInput.value = ""
   quantityInput.value = ""
   modalbg.style.display = "block";
+  input.classList.remove("field-error");
 }
 
 modalBtnClose.addEventListener("click", function() {
   modalbg.style.display = "none";
   reserveElement.style.display = "none"
   mainModal.style.display = "block"
+  
 });
 
 terter.addEventListener("click", function() {
   modalbg.style.display = "none";
   reserveElement.style.display = "none"
   mainModal.style.display = "block"
+
 });
 
 function validate() {
